@@ -1,0 +1,97 @@
+:root {
+  font-family: Heading Lg, Heading Md, Heading Sm, Heading Xs, Body Lg, Body Md,
+    Body Sm, Body Xs, Button;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1e1e1e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.image-logo {
+  width: 172px;
+  height: 44px;
+  margin: 0 auto;
+  margin-top: 204px;
+  display: block;
+}
+
+h1 {
+  font-family: Body Lg;
+  text-align: center;
+  font-size: 22px;
+}
+
+.image-destiny {
+  width: 700px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.ping {
+  width: 20px;
+  height: 20px;
+  margin-left: 310px;
+  position: absolute;
+  bottom: 314px;
+}
+
+h2 {
+  font-family: Body Lg;
+  color: #a1a1aa;
+  font-size: 20px;
+  margin-left: 340px;
+  position: relative;
+  bottom: 72px;
+}
+
+.bottom-next {
+  margin-left: 840px;
+  position: relative;
+  bottom: 122px;
+  height: 36px;
+}
+
+h3 {
+  font-family: Body Sm;
+  color: #000;
+  font-size: 16px;
+  margin-left: 850px;
+  position: relative;
+  bottom: 175px;
+}
+
+.calendar {
+  width: 20px;
+  height: 20px;
+  margin-left: 730px;
+  position: absolute;
+  bottom: 314px;
+}
+
+h4 {
+  font-family: Body Lg;
+  color: #a1a1aa;
+  width: 20px;
+  height: 20px;
+  margin-left: 755px;
+  position: absolute;
+  bottom: 295px;
+}
+
+p {
+  font-family: Body Sm;
+  color: #71717a;
+  text-align: center;
+  margin-top: -44px;
+}
