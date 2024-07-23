@@ -7,6 +7,7 @@ import "./App.css";
 import "./routes/routes.jsx";
 import Home from "./components/home.jsx";
 import Invite from "./components/invite.jsx";
+import Confirm from "./components/confirm-trip.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,6 +18,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/:destination" element={<App />} />
         <Route path="/invite" element={<Invite />} />
+        <Route path="/confirmTrip" element={<Confirm />} />
       </Routes>
     </Router>
   </AppProvider>
