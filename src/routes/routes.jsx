@@ -6,7 +6,7 @@ import App from "../App";
 const Routes = () => {
   return (
     <BrowserRouter>
-      <Route Component={App} path="/" exact />
+      <Route Component={App} path="/" />
     </BrowserRouter>
   );
 };
