@@ -146,7 +146,7 @@ const Invite = () => {
               <img src={x} className="x" alt="Fechar" />
             </button>
             <NavLink
-              to="/confirmTrip"
+              to="/confirm"
               onClick={handleConfirmClick}
               className="modal-confirm-button"
             >
