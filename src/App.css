@@ -104,7 +104,7 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  color: #fff;
+  color: #1e1e1e;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -176,18 +176,25 @@ p {
   border-radius: 10px;
 }
 
-.change-button,
 .confirm-button {
   background-color: #00cc00;
+  color: #000;
+
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.change-button {
   color: #000;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-.change-button {
+  margin-left: 80px;
   background-color: #7f7971;
   margin: 4px 2px;
 
