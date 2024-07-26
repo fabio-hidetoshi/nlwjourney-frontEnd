@@ -69,7 +69,6 @@ const Activities = () => {
               <span>14:00h</span>
             </div>
           </div>
-          {/* Continue listando outras atividades */}
         </section>
 
         <aside className="activities-sidebar">
