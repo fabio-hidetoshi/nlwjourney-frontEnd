@@ -6,16 +6,14 @@ dayjs.locale("pt-br");
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [future, setFuture] = useState({});
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState(dayjs().format("YYYY-MM-DD"));
+
   const [emailList, setEmailList] = useState([]);
 
   return (
     <AppContext.Provider
       value={{
-        future,
-        setFuture,
         destination,
         setDestination,
         date,

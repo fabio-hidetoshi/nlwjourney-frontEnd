@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppContext } from "../AppContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../App.css";
 import logo from "../assets/Logo.png";
 import ping from "../assets/map-pin.png";
@@ -8,23 +8,31 @@ import calendar from "../assets/calendar.png";
 import dayjs from "dayjs";
 
 const Content = () => {
-  const { future, setFuture } = useAppContext(); // Verifique o contexto
-  const [destination, setDestination] = useState("");
-  const [date, setDate] = useState(dayjs().format("YYYY-MM-DD"));
+  const { setDestination, setDate } = useAppContext();
+  const [localDestination, setLocalDestination] = useState("");
+  const [localDate, setLocalDate] = useState(dayjs().format("YYYY-MM-DD"));
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleDestinationChange = (e) => {
-    setDestination(e.target.value);
+    setLocalDestination(e.target.value);
+    setError("");
   };
 
   const handleDateChange = (e) => {
-    setDate(e.target.value);
+    setLocalDate(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      `Destino: ${destination}, Data: ${dayjs(date).format("DD/MM/YYYY")}`
-    );
+    if (!localDestination) {
+      setError("Por favor, digite seu destino.");
+      return;
+    }
+
+    setDestination(localDestination);
+    setDate(localDate);
+    navigate("/invite");
   };
 
   return (
@@ -34,31 +42,32 @@ const Content = () => {
         <h1>Convide seus amigos e planeje sua próxima viagem!</h1>
       </div>
       <div className="start">
-        <form onSubmit={handleSubmit} className="form-container">
+        <form className="form-container" onSubmit={handleFormSubmit}>
           <div className="input-group">
             <img src={ping} alt="Destino" className="icon" />
             <input
               type="text"
               id="destination"
-              value={destination}
+              value={localDestination}
               onChange={handleDestinationChange}
               placeholder="Digite seu destino"
               className="input-field"
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
           <div className="input-group">
             <img src={calendar} alt="Pin de Mapa" className="icon" />
             <input
               type="date"
               id="date"
-              value={date}
+              value={localDate}
               onChange={handleDateChange}
               className="input-field"
             />
           </div>
-          <NavLink to="/invite" className="submit-button">
+          <button type="submit" className="submit-button">
             Continue ➞
-          </NavLink>
+          </button>
         </form>
       </div>
       <p>

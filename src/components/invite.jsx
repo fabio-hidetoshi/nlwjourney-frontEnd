@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAppContext } from "../AppContext";
 import { NavLink } from "react-router-dom";
 import "../App.css";
@@ -7,23 +7,27 @@ import dayjs from "dayjs";
 import x from "../assets/x.png";
 
 const Invite = () => {
-  const {
-    destination,
-    setDestination,
-    date,
-    setDate,
-    emailList,
-    setEmailList,
-  } = useAppContext();
+  const { destination, date, emailList, setEmailList } = useAppContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [localDestination, setLocalDestination] = useState("");
+  const [localDate, setLocalDate] = useState("");
+
+  useEffect(() => {
+    if (destination) {
+      setLocalDestination(destination);
+    }
+    if (date) {
+      setLocalDate(date);
+    }
+  }, [destination, date]);
 
   const handleDestinationChange = (e) => {
-    setDestination(e.target.value);
+    setLocalDestination(e.target.value);
   };
 
   const handleDateChange = (e) => {
-    setDate(e.target.value);
+    setLocalDate(e.target.value);
   };
 
   const handleEmailChange = (e) => {
@@ -44,7 +48,9 @@ const Invite = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(
-      `Destino: ${destination}, Data: ${dayjs(date).format("DD/MM/YYYY")}`
+      `Destino: ${localDestination}, Data: ${dayjs(localDate).format(
+        "DD/MM/YYYY"
+      )}`
     );
   };
 
@@ -70,14 +76,18 @@ const Invite = () => {
                 <p>Destino</p>
                 <input
                   type="text"
-                  value={destination}
+                  value={localDestination}
                   onChange={handleDestinationChange}
-                  placeholder="Rio de Janeiro"
+                  placeholder="Digite seu destino"
                 />
               </div>
               <div className="input-group">
                 <label>Data</label>
-                <input type="date" value={date} onChange={handleDateChange} />
+                <input
+                  type="date"
+                  value={localDate}
+                  onChange={handleDateChange}
+                />
               </div>
               <button type="button" className="change-button">
                 Alterar local/data

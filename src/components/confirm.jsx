@@ -8,10 +8,24 @@ import people from "../assets/user.png";
 import mail from "../assets/mail.png";
 
 const Confirm = () => {
-  const { destination, date, emailList, setEmailList } = useAppContext();
+  const {
+    destination,
+    date,
+    emailList,
+    setEmailList,
+    setDestination,
+    setDate,
+  } = useAppContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  const handleConfirm = () => {
+    setDestination("Florianópolis, Brasil");
+    setDate("2024-08-17");
+
+    navigate("/activities");
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);

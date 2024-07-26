@@ -1,0 +1,91 @@
+/* Activities.css */
+
+.activities-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: #fff;
+}
+
+.activities-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.change-button {
+  background-color: #666;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.activities-content {
+  display: flex;
+  margin-top: 20px;
+}
+
+.activities-list {
+  flex: 3;
+}
+
+.activity-day {
+  margin-bottom: 20px;
+}
+
+.activity {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.activities-sidebar {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.important-links .link-item,
+.guests-list .guest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.add-link-form,
+.add-guest-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.add-link-form input,
+.add-guest-form input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-link-form button,
+.add-guest-form button {
+  background-color: #666;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-link-form button:hover,
+.add-guest-form button:hover {
+  background-color: #555;
+}
