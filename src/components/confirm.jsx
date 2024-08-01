@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { useAppContext } from "../AppContext";
+import { useNavigate } from "react-router-dom";
 import "../Planning.css";
 import logo from "../assets/Logo.png";
-import { NavLink } from "react-router-dom";
 import people from "../assets/user.png";
 import mail from "../assets/mail.png";
 
@@ -19,12 +19,14 @@ const Confirm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleConfirm = () => {
-    setDestination("Florianópolis, Brasil");
-    setDate("2024-08-17");
-
-    navigate("/activities");
+    setIsModalOpen(false);
+    setTimeout(() => {
+      console.log("Navigating to /activities");
+      navigate("/activities");
+    }, 100);
   };
 
   const handleEmailChange = (e) => {
@@ -120,14 +122,9 @@ const Confirm = () => {
                 className="email-input"
               />
             </div>
-            <NavLink
-              to="/details"
-              onClick={handleConfirmClick}
-              className="button-submit"
-            >
-              {" "}
+            <button onClick={handleConfirm} className="button-submit">
               Confirmar Criação da Viagem
-            </NavLink>
+            </button>
           </div>
         </>
       )}

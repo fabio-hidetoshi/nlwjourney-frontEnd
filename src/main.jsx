@@ -8,7 +8,7 @@ import "./routes/routes.jsx";
 import Home from "./components/home.jsx";
 import Invite from "./components/invite.jsx";
 import Confirm from "./components/confirm.jsx";
-import Details from "./components/activities.jsx";
+import Activities from "./components/activities.jsx";
 
 console.log("Starting Application");
 
@@ -22,7 +22,7 @@ root.render(
         <Route path="/:destination" element={<App />} />
         <Route path="/invite" element={<Invite />} />
         <Route path="/confirm" element={<Confirm />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/activities" element={<Activities />} />
       </Routes>
     </Router>
   </AppProvider>

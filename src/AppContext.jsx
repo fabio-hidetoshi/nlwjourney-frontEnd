@@ -1,15 +1,18 @@
-import React, { createContext, useContext, useState } from "react";
-import dayjs from "dayjs";
-import "dayjs/locale/pt-br";
-dayjs.locale("pt-br");
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AppContext = createContext();
 
+export const useAppContext = () => useContext(AppContext);
+
 export const AppProvider = ({ children }) => {
   const [destination, setDestination] = useState("");
-  const [date, setDate] = useState(dayjs().format("YYYY-MM-DD"));
-
+  const [date, setDate] = useState("");
   const [emailList, setEmailList] = useState([]);
+
+  useEffect(() => {
+    console.log("AppProvider destination:", destination);
+    console.log("AppProvider date:", date);
+  }, [destination, date]);
 
   return (
     <AppContext.Provider
@@ -26,5 +29,3 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
-export const useAppContext = () => useContext(AppContext);

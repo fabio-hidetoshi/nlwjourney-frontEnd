@@ -7,27 +7,27 @@ import dayjs from "dayjs";
 import x from "../assets/x.png";
 
 const Invite = () => {
-  const { destination, date, emailList, setEmailList } = useAppContext();
+  const {
+    destination,
+    date,
+    emailList,
+    setEmailList,
+    setDestination,
+    setDate,
+  } = useAppContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState("");
-  const [localDestination, setLocalDestination] = useState("");
-  const [localDate, setLocalDate] = useState("");
-
-  useEffect(() => {
-    if (destination) {
-      setLocalDestination(destination);
-    }
-    if (date) {
-      setLocalDate(date);
-    }
-  }, [destination, date]);
+  const [localDestination, setLocalDestination] = useState(destination || "");
+  const [localDate, setLocalDate] = useState(date || "");
 
   const handleDestinationChange = (e) => {
     setLocalDestination(e.target.value);
+    setDestination(e.target.value);
   };
 
   const handleDateChange = (e) => {
     setLocalDate(e.target.value);
+    setDate(e.target.value);
   };
 
   const handleEmailChange = (e) => {
@@ -155,11 +155,7 @@ const Invite = () => {
             <button onClick={handleCloseModal} className="modal-close-button">
               <img src={x} className="x" alt="Fechar" />
             </button>
-            <NavLink
-              to="/confirm"
-              onClick={handleConfirmClick}
-              className="modal-confirm-button"
-            >
+            <NavLink to="/confirm" className="modal-confirm-button">
               Confirme Aqui
             </NavLink>
           </div>
